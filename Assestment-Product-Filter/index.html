@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic Tools Product Filter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+  </head>
+  <body>
+      <section>
+        <h1>Clinic Tool Proudcts</h1>
+        <ul>
+          <li id='featured' class="list active" data-filter='featured'>Featured</li>
+          <li id='dental' class="list" data-filter='dental'>Dental</li>
+          <li id='behavior' class="list" data-filter='behavior'>Behavior</li>
+          <li id='nutrition' class="list" data-filter='nutrition'>Nutrition</li>
+        </ul>
+          <h2 id='category'>Featured</h2>
+        <ul class="product">
+          <li class="itemBox dental"><a data-fancybox='gallery' href="Assets/PDFs/1-does_your_dogs_smile_hurt.pdf"><img src="Assets/Images/1-does-dogs-smile-hurt.jpg"></a> </li>
+          <li class="itemBox dental"><a data-fancybox='gallery' href="Assets/PDFs/2-does_your_cats_smile_hurt.pdf"><img src="Assets/Images/2-Does-your-cats-smile-hurt.jpg"></a> </li>
+          <li class="itemBox dental"><a data-fancybox='gallery' href="Assets/PDFs/3-Dental-Report-Card.pdf"><img src="Assets/Images/3-Dental-Report-Card.jpg"></a> </li>
+          <li class="itemBox behavior"><a data-fancybox='gallery' href="Assets/PDFs/4-Its-Natural-For-Cats-to-Scratch.pdf"><img src="Assets/Images/4-Its_Natural_for_Cats_to_Scratch.jpg"></a> </li>
+          <li class="itemBox behavior"><a data-fancybox='gallery' href="Assets/PDFs/5-pet-scares-in-summertime.pdf"><img src="Assets/Images/5-Pet-Scares-In-Summertime.jpg"></a> </li>
+          <li class="itemBox behavior"><a data-fancybox='gallery' href="Assets/PDFs/6-Whats-The-Racket_Dog-noise-Aversion.pdf"><img src="Assets/Images/6-Whats-that-racket_Dog_noise_Aversion.jpg"></a> </li>
+          <li class="itemBox nutrition"><a data-fancybox='gallery' href="Assets/PDFs/7-pet_food_label_myths.pdf"><img src="Assets/Images/7-pet_food_label_myths.jpg"></a> </li>
+          <li class="itemBox nutrition"><a data-fancybox='gallery' href="Assets/PDFs/8-hefty-to-healthy.pdf"><img src="Assets/Images/8-hefty-to-healthy.jpg"></a> </li>
+          <li class="itemBox nutrition"><a data-fancybox='gallery' href="Assets/PDFs/9-what-should-i-feed-my-kitten.pdf"><img src="Assets/Images/9-What-should-I-feed-my-kitten.jpg"></a> </li>
+        </ul>
+      </section>
+      <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+
+  <!-- javascript for filter product -->
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.list').click(function(){
+        const value = $(this).attr('data-filter');
+        if(value == 'featured'){
+          document.getElementById('category').innerHTML = 'Featured';
+        }
+        if(value == 'dental'){
+          document.getElementById('category').innerHTML = 'Dental';
+        }
+        if(value == 'behavior'){
+          document.getElementById('category').innerHTML = 'Behavior';
+        }
+        if(value == 'nutrition'){
+          document.getElementById('category').innerHTML = 'Nutrition';
+        }
+        if(value == 'featured'){
+          $('.itemBox').show('1000');
+        }
+        else{
+          $('.itemBox').not('.'+value).hide('1000');
+          $('.itemBox').filter('.'+value).show('1000');
+        }
+      })
+        // add active class on selected item
+        $('.list').click(function() {
+          $(this).addClass('active').siblings().removeClass('active');
+        })
+    })
+  </script>
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+  </body>
+</html>
